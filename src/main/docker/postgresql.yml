@@ -1,0 +1,11 @@
+version: '2'
+services:
+    trabalhoes-postgresql:
+        image: postgres:10.4
+        # volumes:
+        #     - ~/volumes/jhipster/TrabalhoES/postgresql/:/var/lib/postgresql/data/
+        environment:
+            - POSTGRES_USER=TrabalhoES
+            - POSTGRES_PASSWORD=
+        ports:
+            - 5432:5432
