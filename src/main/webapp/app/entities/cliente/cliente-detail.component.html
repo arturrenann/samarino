@@ -1,0 +1,49 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="cliente">
+            <h2><span>Cliente</span> {{cliente.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{cliente.nome}}</span>
+                </dd>
+                <dt><span>Identidade</span></dt>
+                <dd>
+                    <span>{{cliente.identidade}}</span>
+                </dd>
+                <dt><span>Cpf</span></dt>
+                <dd>
+                    <span>{{cliente.cpf}}</span>
+                </dd>
+                <dt><span>Email</span></dt>
+                <dd>
+                    <span>{{cliente.email}}</span>
+                </dd>
+                <dt><span>Telefone</span></dt>
+                <dd>
+                    <span>{{cliente.telefone}}</span>
+                </dd>
+                <dt><span>Reserva</span></dt>
+                <dd>
+                    <span *ngFor="let reserva of cliente.reservas; let last = last">
+                        <a [routerLink]="['/reservar', reserva?.id, 'view' ]">{{reserva.id}}</a>{{last ? '' : ', '}}
+                    </span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/cliente', cliente.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

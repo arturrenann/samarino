@@ -1,0 +1,32 @@
+entity Cliente{
+nome String required,
+identidade String,
+cpf String,
+email String,
+telefone String
+
+}
+entity Hotel {
+nome String required, 
+localizacao String,
+cep String,
+qtdAcomodacoes Integer,
+valorDiaria Integer
+}
+entity Reservar{
+dias Integer,
+dataInicio LocalDate,
+dataEntrega LocalDate,
+valorTotReserva Integer
+}
+relationship ManyToMany{
+Cliente{Reserva} to Reservar{cliente(nome)}
+Reservar{Hoteis(nome)} to Hotel{reservar}
+}
+
+paginate Hotel with pagination
+
+filter Hotel
+filter Reservar
+filter Cliente
+

@@ -1,0 +1,43 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="hotel">
+            <h2><span>Hotel</span> {{hotel.id}}</h2>
+            <hr>
+            <jhi-alert-error></jhi-alert-error>
+            <dl class="row-md jh-entity-details">
+                <dt><span>Nome</span></dt>
+                <dd>
+                    <span>{{hotel.nome}}</span>
+                </dd>
+                <dt><span>Localizacao</span></dt>
+                <dd>
+                    <span>{{hotel.localizacao}}</span>
+                </dd>
+                <dt><span>Cep</span></dt>
+                <dd>
+                    <span>{{hotel.cep}}</span>
+                </dd>
+                <dt><span>Qtd Acomodacoes</span></dt>
+                <dd>
+                    <span>{{hotel.qtdAcomodacoes}}</span>
+                </dd>
+                <dt><span>Valor Diaria</span></dt>
+                <dd>
+                    <span>{{hotel.valorDiaria}}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon [icon]="'arrow-left'"></fa-icon>&nbsp;<span> Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/hotel', hotel.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon [icon]="'pencil-alt'"></fa-icon>&nbsp;<span> Edit</span>
+            </button>
+        </div>
+    </div>
+</div>
